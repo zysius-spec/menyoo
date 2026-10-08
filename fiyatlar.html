@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>menyoo – Hizmet ve fiyat listesi</title>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --kagit:#FBF8F1;   /* adisyon kağıdı */
+  --zemin:#E9E4D8;
+  --murekkep:#1D2A44; /* lacivert tükenmez */
+  --soluk:#5D6577;
+  --muhur:#C8372D;    /* kırmızı kaşe */
+  --cizgi:#CFC7B4;
+  --yesil:#2F6B4F;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--zemin);color:var(--murekkep);font-family:Figtree,system-ui,sans-serif;font-size:15.5px;line-height:1.5;padding:24px 16px 48px}
+.sheet{max-width:760px;margin:0 auto;background:var(--kagit);border-radius:4px;padding:34px 30px 30px;box-shadow:0 1px 0 #fff inset,0 18px 40px -24px rgba(29,42,68,.45);position:relative}
+@media (max-width:560px){.sheet{padding:26px 18px 22px}}
+.sheet:before,.sheet:after{content:"";position:absolute;left:0;right:0;height:10px;background:radial-gradient(circle at 6px -2px,var(--zemin) 6px,transparent 6.5px) 0 0/12px 10px repeat-x}
+.sheet:before{top:-1px}
+.sheet:after{bottom:-1px;transform:rotate(180deg)}
+
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-bottom:2px solid var(--murekkep);padding-bottom:16px}
+.brand{font-family:"Young Serif",Georgia,serif;font-size:46px;line-height:1;letter-spacing:-.01em}
+.brand small{display:block;font-family:Figtree,sans-serif;font-size:15px;font-weight:600;color:var(--soluk);letter-spacing:0;margin-top:8px}
+.stamp{flex:none;border:2.5px solid var(--muhur);color:var(--muhur);border-radius:8px;padding:6px 10px;font-weight:800;font-size:13px;line-height:1.25;text-align:center;transform:rotate(-4deg)}
+.intro{margin:16px 0 4px;max-width:60ch}
+
+h2{font-family:"Young Serif",Georgia,serif;font-weight:400;font-size:25px;margin:30px 0 4px}
+.sec-note{color:var(--soluk);font-size:14px;margin-bottom:6px}
+.row{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:11px 0;border-bottom:1px dashed var(--cizgi)}
+.row:last-child{border-bottom:0}
+.nm{font-weight:700;display:flex;align-items:baseline;gap:8px}
+.nm:after{content:"";flex:1;border-bottom:2px dotted var(--cizgi);transform:translateY(-4px);min-width:16px}
+.pr{font-weight:800;white-space:nowrap;text-align:right}
+.pr small{font-weight:600;color:var(--soluk);font-size:13px}
+.ds{grid-column:1/-1;color:var(--soluk);font-size:14px;max-width:62ch}
+.free{color:var(--yesil)}
+
+.packs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}
+@media (max-width:620px){.packs{grid-template-columns:1fr}}
+.pack{border:2px solid var(--murekkep);border-radius:10px;padding:16px 16px 14px;background:#fff;display:flex;flex-direction:column}
+.pack.star{border-color:var(--muhur);box-shadow:4px 4px 0 var(--muhur)}
+.pack h3{font-family:"Young Serif",Georgia,serif;font-weight:400;font-size:22px;line-height:1.15}
+.pack .for{font-size:13.5px;color:var(--soluk);margin-top:3px}
+.pack ul{list-style:none;margin:12px 0;display:grid;gap:5px;font-size:14.5px}
+.pack li{padding-left:20px;position:relative}
+.pack li:before{content:"✓";position:absolute;left:0;color:var(--yesil);font-weight:800}
+.pack .price{margin-top:auto;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;border-top:1px dashed var(--cizgi);padding-top:10px}
+.pack .price b{font-size:26px;font-weight:800}
+.pack .price s{color:var(--soluk);font-size:14px}
+.pack .price em{font-style:normal;font-size:13px;color:var(--muhur);font-weight:700}
+.badge{align-self:flex-start;background:var(--muhur);color:#fff;font-size:12px;font-weight:800;border-radius:99px;padding:3px 10px;margin-bottom:8px}
+
+.rules{margin-top:30px;border-top:2px solid var(--murekkep);padding-top:14px;font-size:14px;color:var(--soluk)}
+.rules li{margin:5px 0 5px 18px}
+.rules b{color:var(--murekkep)}
+.contact{margin-top:18px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700}
+.contact .ph{border-bottom:2px solid var(--murekkep);min-width:200px;padding-bottom:2px}
+@media print{body{background:#fff;padding:0}.sheet{box-shadow:none;max-width:none}.sheet:before,.sheet:after{display:none}.pack.star{box-shadow:none}}
+</style>
+</head>
+<body>
+<article class="sheet">
+  <header>
+    <div class="brand">menyoo<small>Esnafın dijital vitrini · İzmir</small></div>
+    <div class="stamp">Ekim 2026<br>fiyat listesi</div>
+  </header>
+  <p class="intro">Müşterinin sizi bulmasından, menünüze bakmasından ve sizi değerlendirmesinden sorumluyum. Tek tek hizmet seçebilir ya da aşağıdaki paketlerden birini alabilirsiniz.</p>
+
+  <h2>Paketler</h2>
+  <p class="sec-note">Ayrı ayrı almaktan daha uygun. İlk ay sonucu görün, sonra aylık bakıma karar verin.</p>
+  <div class="packs">
+    <section class="pack star">
+      <span class="badge">En çok seçilen</span>
+      <h3>Dijital Açılış</h3>
+      <p class="for">Tek seferlik · ilk adım için</p>
+      <ul>
+        <li>Google profil düzenleme</li>
+        <li>10 ürün fotoğrafı</li>
+        <li>Canlı QR menü ve usta paneli</li>
+        <li>Yorum sistemi ve 100 paket kartı</li>
+      </ul>
+      <p class="price"><b>3.000 ₺</b><s>ayrı ayrı 5.650 ₺</s></p>
+    </section>
+    <section class="pack">
+      <h3>Mahalle Paketi</h3>
+      <p class="for">Tek seferlik · paket servis yapanlar için</p>
+      <ul>
+        <li>Dijital Açılış'taki her şey</li>
+        <li>1 paket servis platformunda sayfa ve ürün düzenleme</li>
+        <li>Mekân çekimi</li>
+        <li>Rakip analizi raporu</li>
+      </ul>
+      <p class="price"><b>6.000 ₺</b><s>ayrı ayrı 10.650 ₺</s></p>
+    </section>
+    <section class="pack">
+      <h3>Ocak Hep Sıcak</h3>
+      <p class="for">Aylık bakım · açılıştan sonra</p>
+      <ul>
+        <li>Haftalık Google gönderisi</li>
+        <li>Her yoruma sizin adınıza cevap</li>
+        <li>Menü ve fiyat güncellemeleri</li>
+        <li>Ayda 5 yeni fotoğraf</li>
+        <li>Menü sayfası ve QR'ların çalışır tutulması</li>
+        <li>Aylık kısa rapor: yorum, görüntülenme</li>
+      </ul>
+      <p class="price"><b>3.000 ₺</b><small>/ay</small><em>günde ~115 ₺</em></p>
+    </section>
+    <section class="pack">
+      <h3>Büyüme</h3>
+      <p class="for">Aylık · görünürlüğü artırmak isteyenler için</p>
+      <ul>
+        <li>Ocak Hep Sıcak'taki her şey</li>
+        <li>Instagram: ayda 4 reels + 4 gönderi</li>
+        <li>Story ve öne çıkanların düzeni</li>
+        <li>3 ayda bir rakip ve yorum analizi</li>
+      </ul>
+      <p class="price"><b>6.000 ₺</b><small>/ay</small></p>
+    </section>
+  </div>
+
+  <h2>Dijital menü</h2>
+  <div class="row"><span class="nm">Canlı QR menü kurulumu</span><span class="pr">2.000 ₺</span>
+    <span class="ds">Fotoğraflı, fiyatlı menü; "ocakta bugün ne var" tahtası, imza ürün, telefondan fiyat ve ürün değiştirme paneli.</span></div>
+  <div class="row"><span class="nm">İçerik ve alerjen bilgisi girişi</span><span class="pr">750 ₺</span>
+    <span class="ds">Yeni menü düzenlemesine uygun içerik, et türü ve 14 alerjen bilgisi; müşteri için "Alerjiniz mi var?" seçimi.</span></div>
+  <div class="row"><span class="nm">Yabancı dil menü</span><span class="pr">750 ₺ <small>/dil</small></span>
+    <span class="ds">İngilizce, Rusça veya Arapça menü sayfası.</span></div>
+  <div class="row"><span class="nm">Masa ve paket QR kartları</span><span class="pr">400 ₺</span>
+    <span class="ds">Tasarım ve 100 adet siyah-beyaz kesme kart. Fazlası baskı maliyetiyle.</span></div>
+  <div class="row"><span class="nm">Masa üstü QR standı</span><span class="pr">150 ₺ <small>/adet</small></span>
+    <span class="ds">Tasarım dahil; malzemeye göre fiyat değişebilir.</span></div>
+
+  <h2>Google ve haritalar</h2>
+  <div class="row"><span class="nm">Google işletme profili açma veya sahiplenme</span><span class="pr">750 ₺</span>
+    <span class="ds">Profili olmayan ya da sahibi belli olmayan işletmeler için doğrulamaya kadar takip.</span></div>
+  <div class="row"><span class="nm">Google profil düzenleme</span><span class="pr">1.000 ₺</span>
+    <span class="ds">Açıklama, kategoriler, hizmet seçenekleri, saatler, menü bağlantısı ve ilk gönderi.</span></div>
+  <div class="row"><span class="nm">Yorum toplama sistemi</span><span class="pr">750 ₺</span>
+    <span class="ds">"Bizi değerlendir" sayfası, masa ve paket kartları, personele kısa anlatım.</span></div>
+  <div class="row"><span class="nm">Yandex ve Apple Haritalar kaydı</span><span class="pr">500 ₺</span>
+    <span class="ds">iPhone ve Yandex kullanan müşteriler de sizi bulsun.</span></div>
+
+  <h2>Fotoğraf ve video</h2>
+  <div class="row"><span class="nm">Ürün çekimi</span><span class="pr">1.500 ₺</span>
+    <span class="ds">10 ürün, ışık düzeni ve düzenleme dahil. Ek ürün başına 100 ₺.</span></div>
+  <div class="row"><span class="nm">Mekân çekimi</span><span class="pr">1.500 ₺</span>
+    <span class="ds">İç mekân, tezgâh, dış cephe ve tabela; 15 düzenlenmiş kare.</span></div>
+  <div class="row"><span class="nm">Usta ve ekip portresi</span><span class="pr">750 ₺</span>
+    <span class="ds">Google, menü ve Instagram'da kullanılacak güler yüzlü kareler.</span></div>
+  <div class="row"><span class="nm">Kısa video</span><span class="pr">2.000 ₺</span>
+    <span class="ds">3 adet 15–30 saniyelik dikey video (reels / story).</span></div>
+
+  <h2>Paket servis platformları</h2>
+  <p class="sec-note">Trendyol Yemek, Yemeksepeti, Getir Yemek. Fiyatlar platform başına.</p>
+  <div class="row"><span class="nm">Mağaza sayfası düzenleme</span><span class="pr">1.250 ₺</span>
+    <span class="ds">Logo, kapak görseli, açıklama, kategori ve çalışma saatleri.</span></div>
+  <div class="row"><span class="nm">Ürün sayfaları düzenleme</span><span class="pr">1.250 ₺</span>
+    <span class="ds">30 ürüne kadar fotoğraf, açıklama, menü sıralaması ve yanına önerilecek ürünler.</span></div>
+  <div class="row"><span class="nm">Kampanya ve indirim danışmanlığı</span><span class="pr">750 ₺</span>
+    <span class="ds">Hangi kampanya kârlı, hangisi zarar ettirir; komisyonu hesaba katan öneri.</span></div>
+
+  <h2>Analiz ve rapor</h2>
+  <div class="row"><span class="nm free">Dijital görünürlük karnesi</span><span class="pr free">Ücretsiz</span>
+    <span class="ds">İlk görüşmede: Google profilinizin durumu ve 3 hızlı öneri.</span></div>
+  <div class="row"><span class="nm">Rakip analizi</span><span class="pr">1.000 ₺</span>
+    <span class="ds">Uydu haritası üzerinde çevrenizdeki rakipler, puan ve yorum karşılaştırması, fiyat ve fırsat notları.</span></div>
+  <div class="row"><span class="nm">Yorum analizi</span><span class="pr">1.000 ₺</span>
+    <span class="ds">Google ve platform yorumlarınız: müşteri neyi övüyor, neden şikâyet ediyor, ne yapılmalı.</span></div>
+  <div class="row"><span class="nm">Menü ve fiyat analizi</span><span class="pr">1.500 ₺</span>
+    <span class="ds">Menü sıralaması, fiyat yazımı ve öne çıkacak ürünler; kârlı ürünün daha çok satılması için.</span></div>
+
+  <h2>Sosyal medya</h2>
+  <div class="row"><span class="nm">Instagram hesap kurulumu</span><span class="pr">1.500 ₺</span>
+    <span class="ds">Profil, biyografi, öne çıkanlar ve ilk 9 gönderi.</span></div>
+  <div class="row"><span class="nm">Aylık içerik</span><span class="pr">4.000 ₺ <small>/ay</small></span>
+    <span class="ds">Ayda 4 reels + 4 gönderi, çekim ve yazı dahil.</span></div>
+  <div class="row"><span class="nm">Reklam yönetimi</span><span class="pr">2.500 ₺ <small>/ay</small></span>
+    <span class="ds">Çevrenizdeki 3 km'ye öğle ve akşam reklamı. Reklam bütçesini işletme öder.</span></div>
+
+  <h2>Basılı tasarım</h2>
+  <div class="row"><span class="nm">Sadakat kartı</span><span class="pr">500 ₺</span>
+    <span class="ds">"10 dürüme 1 dürüm" gibi damgalı kart tasarımı.</span></div>
+  <div class="row"><span class="nm">Broşür veya kapı askısı</span><span class="pr">750 ₺</span>
+    <span class="ds">Yakındaki iş yerleri ve siteler için öğle siparişi broşürü.</span></div>
+  <div class="row"><span class="nm">Logo yenileme</span><span class="pr">1.500 ₺</span>
+    <span class="ds">Mevcut logonun sadeleştirilmesi; tabela, menü ve sosyal medyaya uygun dosyalar.</span></div>
+
+  <ul class="rules">
+    <li><b>Baskı malzemesi ve reklam bütçesi</b> fiyatlara dahil değildir.</li>
+    <li><b>Sahte yorum yazılmaz, yorum satın alınmaz.</b> Yorum karşılığında indirim veya ikram önerilmez; Google bunu yasaklıyor.</li>
+    <li><b>Şifrenizi istemem.</b> Google ve platform hesaplarına beni yönetici olarak eklersiniz, istediğiniz an çıkarırsınız.</li>
+    <li><b>QR kartlar menyoo sayfasına gider.</b> Bu sayfalar aylık bakımla çalışır durumda tutulur; bakımı bırakırsanız menü dosyanız size teslim edilir.</li>
+    <li>Tek seferlik işlerde ödemenin yarısı başlarken, yarısı teslimde alınır.</li>
+  </ul>
+  <div class="contact"><span>Yusuf · menyoo</span><span class="ph">Telefon: </span></div>
+</article>
+</body>
+</html>
