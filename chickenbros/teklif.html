@@ -67,6 +67,11 @@ ul.l li:before{content:"✓";position:absolute;left:0;color:var(--yesil);font-we
   .src{font-size:9px}
   .contact{margin-top:10px;padding-top:6px}
 }
+.tag{font-style:normal;font-size:11.5px;font-weight:800;color:#fff;background:var(--muhur);border-radius:4px;padding:2px 7px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.step .p s{font-weight:600;color:var(--soluk);font-size:14px;margin-right:4px;text-decoration-thickness:1.5px}
+.who small{display:block;font-weight:600;color:var(--soluk);font-size:13.5px}
+.contact .ph a{color:inherit;text-decoration:none}
+@media print{.tag{background:#fff;border:1.5px solid #000;font-size:9px}.step .p s{font-size:10.5px}.who small{font-size:10.5px}}
 </style>
 </head>
 <body>
@@ -91,8 +96,8 @@ ul.l li:before{content:"✓";position:absolute;left:0;color:var(--yesil);font-we
   <div class="steps">
     <div class="step free"><span class="w">1. ay</span><span class="n">Ücretsiz deneme</span><span class="p">0 ₺</span>
       <span class="d">Canlı QR menü ve yönetici paneli, masa kartları, kasa önü "Bizi değerlendirin" standı. Beğenmezseniz hiçbir ücret ödemezsiniz.</span></div>
-    <div class="step"><span class="w">2.–7. ay</span><span class="n">Dijital Açılış paketi</span><span class="p">6.000 ₺/ay</span>
-      <span class="d">Google profilinizin düzenlenmesi ve güncel tutulması, canlı QR menü ve panel, QR yorum sistemi ve paket kartları, içerik ve alerjen bilgili menü. 6 aylık anlaşma, aylık ödeme.</span></div>
+    <div class="step"><span class="w">2.–7. ay</span><span class="n">Dijital Açılış paketi <em class="tag">Sizlere özel %50</em></span><span class="p"><s>6.000 ₺</s> 3.000 ₺/ay</span>
+      <span class="d">Google profilinizin düzenlenmesi ve güncel tutulması, canlı QR menü ve panel, QR yorum sistemi ve paket kartları, içerik ve alerjen bilgili menü. 6 aylık anlaşma, aylık ödeme. İlk 4 müşterimize özel indirimli fiyattır.</span></div>
     <div class="step"><span class="w">Sonrası</span><span class="n">Menü Bakım</span><span class="p">3.000 ₺/ay</span>
       <span class="d">Paket bitince yalnızca canlı QR menü, panel ve değerlendirme sayfasıyla devam edebilirsiniz.</span></div>
   </div>
@@ -106,7 +111,7 @@ ul.l li:before{content:"✓";position:absolute;left:0;color:var(--yesil);font-we
   </ul>
 
   <h2><span>4</span>QR kodlar nasıl çalışır</h2>
-  <p class="note"><b>Açıkça belirtmek isteriz:</b> Karekodlar menyoo sistemindeki canlı menünüze bağlıdır; menünüzün her zaman güncel kalmasını sağlayan budur. Birlikte çalıştığımız sürece çalışır. Ayrılmak isterseniz menü dosyanız size teslim edilir ve kendi karekodunuzu bastırabilirsiniz.</p>
+  <p class="note"><b>Açıkça belirtmek isteriz:</b> Karekodlar menyoo sistemindeki canlı menünüze bağlıdır; menünüzün her zaman güncel kalmasını sağlayan budur. Karekodlar birlikte çalıştığımız sürece çalışır, hizmet sona erdiğinde devre dışı kalır.</p>
 
   <h2><span>5</span>Kendiniz inceleyin</h2>
   <div class="see">
@@ -114,7 +119,7 @@ ul.l li:before{content:"✓";position:absolute;left:0;color:var(--yesil);font-we
     <p>Sizin ürünleriniz ve fiyatlarınızla hazırlanmış örnek menü:<br><a href="./">zysius-spec.github.io/menyoo/chickenbros</a><br>İlk ayın sonunda yorum sayınıza birlikte bakacağız: başlangıç 35.</p>
   </div>
 
-  <div class="contact"><span>Yusuf · menyoo</span><span class="ph">Telefon: </span></div>
+  <div class="contact"><span class="who">infofarer · menyoo<small>Yusuf Ziya ÖZTÜRK</small></span><span class="ph">Telefon: <a href="tel:+905415115755">0541 511 57 55</a></span></div>
 </article>
 </body>
 </html>
