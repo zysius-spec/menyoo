@@ -8,17 +8,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --lavas:#FFF1D2;      /* lavaş buğdayı: zemin */
-  --lavas-2:#F6D98A;    /* kızarmış lavaş kenarı */
-  --sumak:#C3261C;      /* sumak: ana renk */
-  --sumak-2:#8A160F;
+  --lavas:#FFF4E6;      /* lavaş buğdayı: zemin */
+  --lavas-2:#F7D7AE;    /* kızarmış lavaş kenarı */
+  --sumak:#1F2124;      /* sumak: ana renk */
+  --sumak-2:#000000;
   --biber:#3F6B3A;      /* közlenmiş biber: var */
-  --kor:#F2A900;        /* kor: vurgu */
+  --kor:#F28A1E;        /* kor: vurgu */
   --amber:#C98A12;      /* az kaldı */
   --murekkep:#231815;   /* yazı */
   --soluk:#6E5546;
-  --kart:#FFF8E8;
-  --cizgi:#E7C26F;
+  --kart:#FFFAF3;
+  --cizgi:#F0C995;
   --r-l:22px; --r-m:14px; --r-s:999px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -162,12 +162,21 @@ textarea{width:100%;margin-top:10px;border:1.5px solid var(--cizgi);border-radiu
 .pal{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .pal button{border:1.5px solid var(--cizgi);background:#fff8e6;border-radius:99px;padding:6px 10px;font-size:13px;font-weight:600;color:var(--murekkep)}
 .pal button[aria-pressed="true"]{background:#B3261E;border-color:#B3261E;color:#fff}
+.kids{margin:16px 16px 0;padding:16px;border-radius:var(--r-l);background:#FFE7C7;border:2px dashed var(--kor)}
+.kids h2{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;font-size:24px;font-weight:800;color:var(--sumak)}
+.kids p{font-size:15px;margin-top:4px}
+.kids ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;font-weight:700;font-size:14px}
+.kids li{background:#fff;border-radius:12px;padding:8px 10px}
+.bday{margin-top:12px;background:var(--sumak);color:#fff;border-radius:14px;padding:12px 14px;display:grid;gap:4px}
+.bday span{font-size:14px;opacity:.9}
+.bday a{margin-top:6px;justify-self:start;background:var(--kor);color:#1F2124;text-decoration:none;font-weight:800;border-radius:10px;padding:9px 14px}
+.chip.oneri{background:#E8F0FF;border-color:#9DB6E8;color:#24407A}
 .toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:76px;background:var(--murekkep);color:var(--lavas);padding:10px 16px;border-radius:12px;font-weight:600;font-size:14px;opacity:0;transition:.25s;z-index:9;pointer-events:none}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
-<div class="demo">Örnek tasarım. Fiyatlar ve içerikler temsilidir.</div>
+<div class="demo">Örnek tasarım · Ürün ve fiyatlar işletmenin basılı menüsünden alındı; alerjen bilgileri doğrulanacak.</div>
 
 <!-- ================= MÜŞTERİ ================= -->
 <main id="musteri">
@@ -177,8 +186,8 @@ textarea{width:100%;margin-top:10px;border:1.5px solid var(--cizgi);border-radiu
     <div class="couple">
       <div class="ph">Chicken Bros ekibi</div>
       <div>
-        <p class="slogan">Dondurulmuş değil, her gün taze. Çıtırı kulağından anlarsın.</p>
-        <p>Tavuklarımızı her gün kendimiz marine ediyor, siparişte kızartıyoruz. Doymadan göndermeyiz.</p>
+        <p class="slogan">Burger, çıtır tavuk, mangal. Çocuklar oyunda, siz sofrada.</p>
+        <p>Tavuklarımız dondurulmuş değil, her gün taze. Kaydıraklı, top havuzlu oyun alanımızda çocuklar eğlenirken siz rahatça yemeğinizi yiyin.</p>
         <p class="sig">Chicken Bros ekibi</p>
       </div>
     </div>
@@ -194,9 +203,17 @@ textarea{width:100%;margin-top:10px;border:1.5px solid var(--cizgi);border-radiu
   <div class="facts">
     <span class="fact">⭐ Google'da 5.0</span>
     <span class="fact">Her gün 11:30–24:00</span>
-    <span class="fact">Paket servis var</span>
+    <span class="fact">Çocuk oyun alanı</span><span class="fact">Paket servis var</span>
   </div>
 
+
+  <section class="kids" aria-labelledby="kidsT">
+    <h2 id="kidsT">Çocuk Dünyası</h2>
+    <p>Kaydırak, zıplama alanı ve top havuzu. Çocuklar oynasın, siz sıcak sıcak yiyin.</p>
+    <ul><li>🛝 Kaydırak</li><li>🤸 Zıplama alanı</li><li>🔴 Top havuzu</li><li>🍔 Çocuk menüleri</li></ul>
+    <div class="bday"><b>Doğum günü kutlaması</b><span>Pasta, süs ve çocuk menüleriyle doğum gününü burada kutlayın.</span>
+      <a href="tel:+905532192633">Rezervasyon için arayın</a></div>
+  </section>
   <button class="algbtn" id="algBtn" onclick="openAlg()">⚠️ Alerjiniz mi var?</button>
   <div class="algbar" id="algBar"></div>
 
@@ -294,22 +311,44 @@ const ALG=[
  {k:"balik",n:"Balık",i:"🐟"},{k:"kabuklu",n:"Karides, yengeç",i:"🦐"},{k:"yumusakca",n:"Midye, kalamar",i:"🦑"},
  {k:"sulfit",n:"Sülfit",i:"🍷"},{k:"lupin",n:"Acı bakla",i:"🌼"}];
 const ALN=Object.fromEntries(ALG.map(a=>[a.k,a]));
-const DEFAULT = {ocak:true, note:"", t:0, cats:["Menüler","Burgerler","Çıtır Tavuk","Yanlar","İçecekler"], items:[
- {id:"doyuran", cat:"Menüler", nm:"Doyuran Menü", pr:450, ds:"Tavuk burger, 3 çıtır bonfile, patates ve içecek.", tags:["Kanatlı"], al:["gluten","yumurta","susam","sut"], board:false, st:"var"},
- {id:"kova", cat:"Menüler", nm:"Kova Menü (2 kişilik)", pr:790, ds:"8 çıtır parça, 2 patates, 2 sos ve 1 litre içecek.", tags:["Kanatlı"], al:["gluten","yumurta"], board:true, st:"var"},
- {id:"burger", cat:"Burgerler", nm:"Çıtır Tavuk Burger", pr:280, ds:"Çıtır göğüs, cheddar, marul, özel sos, brioche ekmek.", tags:["Kanatlı"], al:["gluten","sut","yumurta","susam"], board:true, st:"var"},
- {id:"aciliburger", cat:"Burgerler", nm:"Acılı Bros Burger", pr:300, ds:"Acılı çıtır göğüs, jalapeño, acı sos.", tags:["Kanatlı","Acılı"], al:["gluten","sut","yumurta","susam"], board:false, st:"var"},
- {id:"bonfile", cat:"Çıtır Tavuk", nm:"Çıtır Bonfile (5 adet)", pr:260, ds:"Günlük marine edilmiş göğüs, siparişte kızartılır.", tags:["Kanatlı"], al:["gluten","yumurta"], board:true, st:"var"},
- {id:"kanat", cat:"Çıtır Tavuk", nm:"Çıtır Kanat (8 adet)", pr:280, ds:"Baharatlı kaplama, iki sos seçimi.", tags:["Kanatlı"], al:["gluten"], board:false, st:"az"},
- {id:"baget", cat:"Çıtır Tavuk", nm:"Çıtır Baget (4 adet)", pr:300, ds:"Kemikli but, sulu ve çıtır.", tags:["Kanatlı"], al:["gluten"], board:false, st:"var"},
- {id:"patates", cat:"Yanlar", nm:"Patates Kızartması", pr:90, ds:"Büyük porsiyon.", tags:[], al:[], board:false, st:"var"},
- {id:"halka", cat:"Yanlar", nm:"Soğan Halkası", pr:110, ds:"8 adet, çıtır kaplama.", tags:[], al:["gluten"], board:false, st:"var"},
- {id:"coleslaw", cat:"Yanlar", nm:"Coleslaw", pr:70, ds:"Lahana ve havuç salatası.", tags:[], al:["yumurta","hardal"], board:false, st:"var"},
- {id:"ayran", cat:"İçecekler", nm:"Ayran", pr:40, ds:"", tags:[], al:["sut"], board:false, st:"var"},
- {id:"kutu", cat:"İçecekler", nm:"Kutu İçecek", pr:60, ds:"Kola, gazoz veya meyve suyu.", tags:[], al:[], board:false, st:"var"}
+const DEFAULT = {ocak:true, note:"", t:0, cats:["Menüler","Çocuk Menüleri","Izgara ve Mangal","Yan Ürünler","İçecekler"], items:[
+ {id:"doyuran", cat:"Menüler", nm:"Doyuran Menü", pr:300, ds:"XL tavuk burger, 2 tenders, 4 soğan halkası, patates kızartması, 330 ml Pepsi.", tags:["Kanatlı"], al:["gluten"], board:true, st:"var"},
+ {id:"tburger", cat:"Menüler", nm:"Tavuk Burger Menü", pr:250, ds:"XL tavuk burger, patates kızartması, 330 ml Pepsi.", tags:["Kanatlı"], al:["gluten"], board:false, st:"var"},
+ {id:"hburger", cat:"Menüler", nm:"Hamburger Menü", pr:350, ds:"XL köfte burger, patates kızartması, seçeceğiniz içecek.", tags:["Kırmızı et"], al:["gluten"], board:false, st:"var"},
+ {id:"kova", cat:"Menüler", nm:"Kova Menü", pr:450, ds:"10 adet tenders, 4 soğan halkası, patates kızartması, 330 ml Pepsi.", tags:["Kanatlı"], al:["gluten"], board:true, st:"var"},
+ {id:"bowl", cat:"Menüler", nm:"Chicken Bowl", pr:250, ds:"200 g çıtır tavuk, 300 g patates, 2 sos seçeneği, 330 ml Pepsi.", tags:["Kanatlı"], al:["gluten"], board:false, st:"var"},
+ {id:"durum", cat:"Menüler", nm:"Çıtır Tavuk Dürüm", pr:250, ds:"Çıtır tavuk dürüm, patates kızartması, 330 ml içecek.", tags:["Kanatlı"], al:["gluten"], board:false, st:"var"},
+ {id:"kilotavuk", cat:"Menüler", nm:"1 Kilo Çıtır Tavuk Menü", pr:700, ds:"1 kg tenders, patates kızartması.", tags:["Kanatlı", "Kalabalık için"], al:["gluten"], board:false, st:"var"},
+ {id:"kilokanat", cat:"Menüler", nm:"1 Kilo Çıtır Kanat Menü", pr:750, ds:"1 kg çıtır kanat, patates kızartması.", tags:["Kanatlı", "Kalabalık için"], al:["gluten"], board:false, st:"var"},
+ {id:"cocukburger", cat:"Çocuk Menüleri", nm:"Çocuk Burger Menü", pr:200, ds:"Tavuk burger, patates kızartması, 200 ml meyve suyu veya ayran.", tags:["Kanatlı"], al:["gluten", "sut"], board:false, st:"var"},
+ {id:"cocuknugget", cat:"Çocuk Menüleri", nm:"Çocuk Nugget Menü", pr:180, ds:"6 nugget, patates kızartması, 200 ml meyve suyu. (Öneri ürün)", tags:["Kanatlı", "Öneri"], al:["gluten"], board:false, st:"var"},
+ {id:"cocukchurros", cat:"Çocuk Menüleri", nm:"Tatlı Kaçamak", pr:110, ds:"2 churros ve 200 ml meyve suyu. (Öneri ürün)", tags:["Öneri"], al:["gluten", "sut", "yumurta"], board:false, st:"var"},
+ {id:"izkanat", cat:"Izgara ve Mangal", nm:"Izgara Kanat 1 kg", pr:750, ds:"Uç ve kök kanat, bulgur pilavı, köz biber ve domates, lavaş.", tags:["Kanatlı", "Kalabalık için"], al:["gluten"], board:true, st:"var"},
+ {id:"izkarisik", cat:"Izgara ve Mangal", nm:"Izgara Tavuk Karışık 1 kg", pr:700, ds:"Bulgur pilavı, köz biber ve domates, lavaş.", tags:["Kanatlı", "Kalabalık için"], al:["gluten"], board:false, st:"var"},
+ {id:"izincik", cat:"Izgara ve Mangal", nm:"Izgara İncik 1 kg", pr:700, ds:"Bulgur pilavı, köz biber ve domates, lavaş.", tags:["Kanatlı", "Kalabalık için"], al:["gluten"], board:false, st:"var"},
+ {id:"izkelebek", cat:"Izgara ve Mangal", nm:"Izgara Kelebek 1 kg", pr:700, ds:"Bulgur pilavı, köz biber ve domates, lavaş.", tags:["Kanatlı", "Kalabalık için"], al:["gluten"], board:false, st:"var"},
+ {id:"izpor", cat:"Izgara ve Mangal", nm:"Porsiyon Izgara (300 g)", pr:300, ds:"Izgara tavuk, bulgur pilavı, köz biber ve domates, lavaş.", tags:["Kanatlı"], al:["gluten"], board:false, st:"var"},
+ {id:"iz500", cat:"Izgara ve Mangal", nm:"Izgara 500 g", pr:400, ds:"Izgara tavuk, bulgur pilavı, köz biber ve domates, lavaş.", tags:["Kanatlı"], al:["gluten"], board:false, st:"var"},
+ {id:"kofte", cat:"Izgara ve Mangal", nm:"Porsiyon Köfte", pr:400, ds:"5 adet köfte, bulgur pilavı, köz biber, soğan, domates, lavaş.", tags:["Kırmızı et"], al:["gluten"], board:false, st:"var"},
+ {id:"ykofte", cat:"Izgara ve Mangal", nm:"Yarım Ekmek Köfte", pr:250, ds:"Yarım ekmek köfte ve ayran.", tags:["Kırmızı et"], al:["gluten", "sut"], board:false, st:"var"},
+ {id:"yincik", cat:"Izgara ve Mangal", nm:"Yarım Ekmek / Dürüm İncik", pr:200, ds:"Yarım ekmek veya dürüm incik ve ayran.", tags:["Kanatlı"], al:["gluten", "sut"], board:false, st:"var"},
+ {id:"churros", cat:"Yan Ürünler", nm:"2 Adet Churros", pr:75, ds:"Tatlı kaçamak.", tags:[], al:["gluten", "sut", "yumurta"], board:false, st:"var"},
+ {id:"tenders2", cat:"Yan Ürünler", nm:"2 Adet Tenders", pr:75, ds:"", tags:["Kanatlı"], al:["gluten"], board:false, st:"var"},
+ {id:"patates", cat:"Yan Ürünler", nm:"Patates Kızartması (300 g)", pr:75, ds:"", tags:[], al:[], board:false, st:"var"},
+ {id:"halka", cat:"Yan Ürünler", nm:"6 Adet Soğan Halkası", pr:50, ds:"", tags:[], al:["gluten"], board:false, st:"var"},
+ {id:"nugget", cat:"Yan Ürünler", nm:"6 Adet Nugget", pr:75, ds:"", tags:["Kanatlı"], al:["gluten"], board:false, st:"var"},
+ {id:"kutu", cat:"İçecekler", nm:"Kutu İçecekler", pr:60, ds:"", tags:[], al:[], board:false, st:"var"},
+ {id:"meyve", cat:"İçecekler", nm:"200 ml Meyve Suyu", pr:40, ds:"", tags:[], al:[], board:false, st:"var"},
+ {id:"bayran", cat:"İçecekler", nm:"Büyük Ayran", pr:50, ds:"", tags:[], al:["sut"], board:false, st:"var"},
+ {id:"kayran", cat:"İçecekler", nm:"Küçük Ayran", pr:30, ds:"", tags:[], al:["sut"], board:false, st:"var"},
+ {id:"soda", cat:"İçecekler", nm:"Sade Soda", pr:30, ds:"", tags:[], al:[], board:false, st:"var"},
+ {id:"1lt", cat:"İçecekler", nm:"1 lt İçecekler", pr:80, ds:"", tags:[], al:[], board:false, st:"var"},
+ {id:"25lt", cat:"İçecekler", nm:"2,5 lt İçecekler", pr:120, ds:"", tags:[], al:[], board:false, st:"var"},
+ {id:"su", cat:"İçecekler", nm:"Su", pr:20, ds:"", tags:[], al:[], board:false, st:"var"},
+ {id:"kahve", cat:"İçecekler", nm:"Türk Kahvesi", pr:75, ds:"", tags:[], al:[], board:false, st:"var"}
 ], sig:"doyuran"};
 const LABEL = {var:"Var", az:"Az kaldı", bitti:"Bitti"};
-const KEY = "chickenbros-demo-v1";
+const KEY = "chickenbros-demo-v2";
 let S = JSON.parse(JSON.stringify(DEFAULT)); S.t = Date.now();
 try{const v=JSON.parse(localStorage.getItem(KEY)); if(v&&v.items) S=v;}catch(e){}
 S.items.forEach(i=>{if(!i.al) i.al=[];});
@@ -340,7 +379,7 @@ function renderCustomer(){
       ${hit.length?`<span class="awarn">⚠ Dikkat, içerir: ${hit.map(a=>ALN[a].n).join(", ")}</span>`:""}
       <div class="chips">${i.id===S.sig?'<span class="chip usta">Bros\'un önerisi</span>':""}
         ${i.st!=="var"?`<span class="st ${i.st}">${LABEL[i.st]}</span>`:""}
-        ${i.tags.map(t=>`<span class="chip">${esc(t)}</span>`).join("")}
+        ${i.tags.map(t=>`<span class="chip ${t==="Öneri"?"oneri":""}">${esc(t)}</span>`).join("")}
         ${i.al.map(a=>`<span class="chip al ${hit.includes(a)?"hit":""}">${ALN[a].i} ${ALN[a].n}</span>`).join("")}</div></div></article>`;}).join("")
   }</section>`).join("");
   renderAlg();
