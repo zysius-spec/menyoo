@@ -2,10 +2,11 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
+<meta name="theme-color" content="#161719">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chicken Bros – Canlı Menü ve Yönetici Paneli</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --lavas:#FFF4E6;      /* lavaş buğdayı: zemin */
@@ -173,6 +174,97 @@ textarea{width:100%;margin-top:10px;border:1.5px solid var(--cizgi);border-radiu
 .chip.oneri{background:#E8F0FF;border-color:#9DB6E8;color:#24407A}
 .toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:76px;background:var(--murekkep);color:var(--lavas);padding:10px 16px;border-radius:12px;font-weight:600;font-size:14px;opacity:0;transition:.25s;z-index:9;pointer-events:none}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ===== Chicken Bros resmi koyu tema ===== */
+:root{--bg:#161719;--yuzey:#1F2023;--yuzey2:#27282C;--hat:#34353A;--metin:#EEE7DD;--soluk2:#A69D92;--altin:#E3953A;--altin2:#B8701F}
+body{background:var(--bg)!important;color:var(--metin)!important;background-image:radial-gradient(120% 60% at 50% -10%,#24252a 0,transparent 60%)!important}
+.demo{background:#000!important;color:#bdb5aa!important}
+.greet{color:var(--soluk2)!important;font-weight:500!important;letter-spacing:.02em}
+.hero h1{font-family:Cinzel,Georgia,serif!important;font-weight:700!important;color:var(--altin)!important;font-size:46px!important;letter-spacing:.02em;line-height:1!important}
+.hero h1 small{font-family:Figtree,sans-serif!important;color:var(--soluk2)!important;font-weight:500!important;font-size:15px!important;letter-spacing:.04em;margin-top:10px!important}
+.couple{background:transparent!important;border:0!important;border-top:1px solid var(--hat)!important;border-bottom:1px solid var(--hat)!important;border-radius:0!important;padding:16px 0!important}
+.couple .ph{width:64px!important;height:64px!important;background:#000!important;border:1.5px solid var(--altin)!important;color:var(--altin)!important;font-family:Cinzel,serif!important;font-size:18px!important;font-weight:700;place-items:center!important;padding:0!important}
+.slogan{font-family:Cinzel,Georgia,serif!important;color:var(--metin)!important;font-weight:600!important;font-size:17px!important;line-height:1.35!important}
+.couple p{color:#cfc7bc}
+.couple .sig{color:var(--altin)!important;font-family:Cinzel,serif!important;font-size:13px!important}
+.board{background:var(--yuzey)!important;color:var(--metin)!important;border:1px solid var(--hat)!important;box-shadow:none!important;border-radius:6px!important}
+.board:before{display:none!important}
+.board h2{font-family:Cinzel,serif!important;font-weight:600!important;font-size:19px!important}
+.board li{background:transparent!important;border-bottom:1px solid var(--hat);border-radius:0!important;padding:10px 2px!important;font-weight:600!important}
+.board li:last-child{border-bottom:0}
+.note{background:var(--yuzey2)!important;color:var(--metin)!important}
+.note b{color:var(--altin)!important}
+.st.var{background:transparent!important;color:#8FCB8F!important;border:1px solid #3d5a3d}
+.st.az{background:transparent!important;color:var(--altin)!important;border:1px solid var(--altin2)}
+.st.bitti{background:transparent!important;color:#E07A6E!important;border:1px solid #6b2f29}
+.fact{background:transparent!important;border:1px solid var(--hat)!important;color:#cfc7bc!important;font-weight:500!important}
+.kids{background:var(--yuzey)!important;border:1px solid var(--altin2)!important;border-radius:6px!important}
+.kids h2{font-family:Cinzel,serif!important;color:var(--altin)!important;font-size:21px!important;font-weight:600!important}
+.kids p{color:#cfc7bc}
+.kids li{background:transparent!important;border:1px solid var(--hat);border-radius:4px!important;color:var(--metin);font-weight:600!important}
+.bday{background:#000!important;border:1px solid var(--hat);border-radius:6px!important}
+.bday b{font-family:Cinzel,serif;color:var(--altin);font-size:16px}
+.bday a{background:var(--altin)!important;color:#161719!important;border-radius:4px!important}
+.algbtn{background:transparent!important;border:1px solid #8f3a32!important;color:#E9A097!important;border-radius:6px!important;font-weight:700!important}
+.algbar{background:#2a1716!important;border-color:#8f3a32!important;color:var(--metin)}
+.algbar b{color:#E9A097!important}
+.algbar .acts button{background:transparent!important;color:#E9A097!important;border-color:#8f3a32!important}
+nav.cats{background:var(--bg)!important;border-bottom:1px solid var(--hat)}
+nav.cats a{background:transparent!important;border:1px solid var(--hat)!important;color:var(--metin)!important;border-radius:4px!important;font-weight:600!important}
+section.cat h3{font-family:Cinzel,Georgia,serif!important;color:var(--altin)!important;font-weight:600!important;font-size:24px!important;border-bottom:1px solid var(--hat);padding-bottom:8px}
+.item{border-bottom:1px solid var(--hat)!important}
+.item .ph{background:var(--yuzey2)!important;color:#6f685f!important;border-radius:4px!important;border:1px solid var(--hat)}
+.top{align-items:baseline}
+.nm{color:var(--metin)!important;font-weight:700!important;display:flex;gap:8px;flex:1;align-items:baseline}
+.nm:after{content:"";flex:1;border-bottom:1px dotted #55565c;transform:translateY(-4px);min-width:12px}
+.pr{color:var(--altin)!important;font-family:Figtree,sans-serif!important;font-weight:700!important;font-size:17px!important}
+.ds{color:var(--soluk2)!important}
+.chip{background:transparent!important;border:1px solid var(--hat)!important;color:var(--soluk2)!important;border-radius:3px!important;font-weight:500!important}
+.chip.usta{border-color:var(--altin)!important;color:var(--altin)!important}
+.chip.oneri{border-color:#5d7bb5!important;color:#a9bfe9!important}
+.chip.al{color:#d8b0aa!important;border-color:#4a3432!important}
+.chip.al.hit{background:#8f3a32!important;color:#fff!important;border-color:#8f3a32!important}
+.item.alrj{background:#241514!important;border:1.5px solid #b4483d!important;border-radius:6px!important}
+.awarn{color:#F0A49A!important}
+.item.out{opacity:.45}
+.love{background:var(--yuzey)!important;border:1px solid var(--hat)!important;border-radius:6px!important}
+.love h3{font-family:Cinzel,serif!important;color:var(--altin)!important;font-weight:600!important}
+.love .sub{color:var(--soluk2)!important}
+.q{color:var(--metin)!important;border-left-color:var(--altin)!important;font-weight:500!important;font-style:italic}
+.legal,.foot{color:#8c847a!important;border-top-color:var(--hat)!important}
+.cta{background:linear-gradient(transparent,var(--bg) 35%)!important}
+.cta .wa{background:var(--yuzey2)!important;color:var(--metin)!important;border:1px solid var(--hat)!important;border-radius:6px!important}
+.cta .rv{background:var(--altin)!important;color:#161719!important;border-radius:6px!important}
+.switch{background:#000!important}
+.switch button{color:#bdb5aa!important}
+.switch button[aria-pressed="true"]{background:var(--altin)!important;color:#161719!important}
+.sheet>div{background:var(--yuzey)!important;color:var(--metin)}
+.sheet h2{color:#E9A097!important;font-family:Cinzel,serif!important}
+.sheet p{color:var(--soluk2)!important}
+.agrid button{background:transparent!important;border:1px solid var(--hat)!important;color:var(--metin)!important;border-radius:6px!important}
+.agrid button[aria-pressed="true"]{background:#8f3a32!important;border-color:#8f3a32!important;color:#fff!important}
+.sheet .go{background:#8f3a32!important;border-radius:6px!important}
+/* panel */
+#panel h1{font-family:Cinzel,serif!important;color:var(--altin)!important}
+#panel .lead,.ocak p,.hint{color:var(--soluk2)!important}
+.pcard,.eitem{background:var(--yuzey)!important;border:1px solid var(--hat)!important;border-radius:6px!important;color:var(--metin)}
+.eitem.sig{border-color:var(--altin)!important;box-shadow:none!important}
+.ptabs{background:var(--yuzey)!important;border-color:var(--hat)!important}
+.ptabs button{color:var(--metin)!important}
+.ptabs button[aria-selected="true"]{background:var(--altin)!important;color:#161719!important}
+.seg button,.mini,.pal button{background:transparent!important;border:1px solid var(--hat)!important;color:var(--metin)!important}
+.seg button[aria-pressed="true"].var{background:#2f5a35!important;border-color:#2f5a35!important}
+.seg button[aria-pressed="true"].az{background:var(--altin2)!important;border-color:var(--altin2)!important}
+.seg button[aria-pressed="true"].bitti{background:#8f3a32!important;border-color:#8f3a32!important}
+.mini.on{background:var(--altin)!important;color:#161719!important;border-color:var(--altin)!important}
+.pal button[aria-pressed="true"]{background:#8f3a32!important;border-color:#8f3a32!important}
+.fl{color:var(--soluk2)!important}
+.fl input,.fl select,textarea{background:var(--yuzey2)!important;border:1px solid var(--hat)!important;color:var(--metin)!important}
+.ecat{font-family:Cinzel,serif!important;color:var(--altin)!important}
+.prow{border-bottom-color:var(--hat)!important}
+.big.on{background:#2f5a35!important}
+.chk{color:var(--metin)}
+:focus-visible{outline-color:var(--altin)!important}
 </style>
 </head>
 <body>
@@ -181,47 +273,47 @@ textarea{width:100%;margin-top:10px;border:1.5px solid var(--cizgi);border-radiu
 <!-- ================= MÜŞTERİ ================= -->
 <main id="musteri">
   <div class="hero">
-    <p class="greet" id="greet">Hoş geldin komşu</p>
+    <p class="greet" id="greet">Hoş geldiniz</p>
     <h1>Chicken Bros<small>Örnekköy, Karşıyaka</small></h1>
     <div class="couple">
-      <div class="ph">Chicken Bros ekibi</div>
+      <div class="ph">CB</div>
       <div>
-        <p class="slogan">Burger, çıtır tavuk, mangal. Çocuklar oyunda, siz sofrada.</p>
-        <p>Tavuklarımız dondurulmuş değil, her gün taze. Kaydıraklı, top havuzlu oyun alanımızda çocuklar eğlenirken siz rahatça yemeğinizi yiyin.</p>
-        <p class="sig">Chicken Bros ekibi</p>
+        <p class="slogan">Çıtır tavuk, burger ve mangal; aileniz için özenle hazırlanır.</p>
+        <p>Tavuklarımız dondurulmadan, her gün taze olarak hazırlanır. Çocuk oyun alanımızda küçük misafirlerimiz eğlenirken siz yemeğinizin tadını çıkarabilirsiniz.</p>
+        <p class="sig">Chicken Bros</p>
       </div>
     </div>
   </div>
 
   <div class="board" id="board">
-    <h2><span class="flame"></span><span id="boardTitle">Fritöz sıcak</span></h2>
+    <h2><span class="flame"></span><span id="boardTitle">Mutfağımız açık</span></h2>
     <p class="upd" id="upd">Az önce güncellendi</p>
     <ul id="boardList"></ul>
     <p class="note" id="note"></p>
   </div>
 
   <div class="facts">
-    <span class="fact">⭐ Google'da 5.0</span>
+    <span class="fact">Google puanı 5,0</span>
     <span class="fact">Her gün 11:30–24:00</span>
     <span class="fact">Çocuk oyun alanı</span><span class="fact">Paket servis var</span>
   </div>
 
 
   <section class="kids" aria-labelledby="kidsT">
-    <h2 id="kidsT">Çocuk Dünyası</h2>
-    <p>Kaydırak, zıplama alanı ve top havuzu. Çocuklar oynasın, siz sıcak sıcak yiyin.</p>
-    <ul><li>🛝 Kaydırak</li><li>🤸 Zıplama alanı</li><li>🔴 Top havuzu</li><li>🍔 Çocuk menüleri</li></ul>
-    <div class="bday"><b>Doğum günü kutlaması</b><span>Pasta, süs ve çocuk menüleriyle doğum gününü burada kutlayın.</span>
-      <a href="tel:+905532192633">Rezervasyon için arayın</a></div>
+    <h2 id="kidsT">Çocuk oyun alanı</h2>
+    <p>Kaydırak, zıplama alanı ve top havuzuyla küçük misafirlerimiz güvenle eğlenirken siz yemeğinizin keyfini çıkarabilirsiniz.</p>
+    <ul><li>Kaydırak</li><li>Zıplama alanı</li><li>Top havuzu</li><li>Çocuk menüleri</li></ul>
+    <div class="bday"><b>Doğum günü organizasyonu</b><span>Çocuğunuzun doğum gününü süsleme ve çocuk menüleriyle restoranımızda kutlayabilirsiniz.</span>
+      <a href="tel:+905532192633">Rezervasyon için arayınız</a></div>
   </section>
-  <button class="algbtn" id="algBtn" onclick="openAlg()">⚠️ Alerjiniz mi var?</button>
+  <button class="algbtn" id="algBtn" onclick="openAlg()">Alerjiniz var mı?</button>
   <div class="algbar" id="algBar"></div>
 
   <nav class="cats" id="cats" aria-label="Menü bölümleri"></nav>
   <div id="menu"></div>
 
   <div class="love">
-    <h3>Komşularımız ne diyor</h3>
+    <h3>Misafirlerimizin yorumları</h3>
     <p class="sub">Google yorumlarından</p>
     <p class="q">Tavuğun dondurulmuş olmadığı ilk lokmadan belli.</p>
     <p class="q">Burger söylendiği kadar büyük, menü gerçekten doyuruyor.</p>
@@ -233,8 +325,8 @@ textarea{width:100%;margin-top:10px;border:1.5px solid var(--cizgi);border-radiu
 </main>
 
 <div class="cta">
-  <button class="wa" onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Chicken+Bros+Karsiyaka&destination_place_id=ChIJRUQhoQzXuxQR-q4oq_YYbtc','_blank')">📍 Yol tarifi</button>
-  <button class="rv" onclick="window.open('https://search.google.com/local/writereview?placeid=ChIJRUQhoQzXuxQR-q4oq_YYbtc','_blank')">⭐ Yorum yaz</button>
+  <button class="wa" onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Chicken+Bros+Karsiyaka&destination_place_id=ChIJRUQhoQzXuxQR-q4oq_YYbtc','_blank')">Yol tarifi</button>
+  <button class="rv" onclick="window.open('https://search.google.com/local/writereview?placeid=ChIJRUQhoQzXuxQR-q4oq_YYbtc','_blank')">Değerlendirin</button>
 </div>
 
 <!-- ================= USTA PANELİ ================= -->
@@ -347,7 +439,7 @@ const DEFAULT = {ocak:true, note:"", t:0, cats:["Menüler","Çocuk Menüleri","I
  {id:"su", cat:"İçecekler", nm:"Su", pr:20, ds:"", tags:[], al:[], board:false, st:"var"},
  {id:"kahve", cat:"İçecekler", nm:"Türk Kahvesi", pr:75, ds:"", tags:[], al:[], board:false, st:"var"}
 ], sig:"doyuran"};
-const LABEL = {var:"Var", az:"Az kaldı", bitti:"Bitti"};
+const LABEL = {var:"Mevcut", az:"Sınırlı", bitti:"Tükendi"};
 const KEY = "chickenbros-demo-v2";
 let S = JSON.parse(JSON.stringify(DEFAULT)); S.t = Date.now();
 try{const v=JSON.parse(localStorage.getItem(KEY)); if(v&&v.items) S=v;}catch(e){}
@@ -358,17 +450,17 @@ function save(silent){S.t=Date.now(); try{localStorage.setItem(KEY,JSON.stringif
 const $=id=>document.getElementById(id);
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function ago(){const m=Math.round((Date.now()-S.t)/60000); return m<1?"Az önce güncellendi":m+" dk önce güncellendi";}
-function greet(){const h=new Date().getHours(); return (h<11||(h===11&&new Date().getMinutes()<30))?"Günaydın, 11:30'da fritöz ısınıyor":h<17?"Hoş geldin, afiyet olsun":"İyi akşamlar, gece 12'ye kadar açığız";}
+function greet(){const h=new Date().getHours(); return (h<11||(h===11&&new Date().getMinutes()<30))?"Günaydın, 11:30'dan itibaren hizmetinizdeyiz":h<17?"Hoş geldiniz, afiyet olsun":"İyi akşamlar, 24:00'e kadar hizmetinizdeyiz";}
 function fmt(n){return Number(n).toLocaleString("tr-TR");}
 
 function renderCustomer(){
   $("greet").textContent=greet();
   $("board").classList.toggle("kapali",!S.ocak);
-  $("boardTitle").textContent=S.ocak?"Fritöz sıcak":"Şu an kapalıyız";
+  $("boardTitle").textContent=S.ocak?"Mutfağımız açık":"Şu an hizmet vermiyoruz";
   $("upd").textContent=ago();
   const bi=S.items.filter(i=>i.board);
   $("boardList").innerHTML=bi.length?bi.map(i=>`<li>${esc(i.nm.replace(/ Dürüm$/,""))}<span class="st ${i.st}">${LABEL[i.st]}</span></li>`).join(""):"";
-  $("note").classList.toggle("on",!!S.note.trim()); $("note").innerHTML=`<b>Mutfaktan not:</b> ${esc(S.note)}`;
+  $("note").classList.toggle("on",!!S.note.trim()); $("note").innerHTML=`<b>Duyuru:</b> ${esc(S.note)}`;
   const cats=S.cats.filter(c=>S.items.some(i=>i.cat===c));
   $("cats").innerHTML=cats.map((c,k)=>`<a href="#c${k}">${esc(c)}</a>`).join("");
   $("menu").innerHTML=cats.map((c,k)=>`<section class="cat" id="c${k}"><h3>${esc(c)}</h3>${
@@ -377,7 +469,7 @@ function renderCustomer(){
       <div><div class="top"><span class="nm">${esc(i.nm)}</span><span class="pr">${fmt(i.pr)} ₺</span></div>
       ${i.ds?`<p class="ds">${esc(i.ds)}</p>`:""}
       ${hit.length?`<span class="awarn">⚠ Dikkat, içerir: ${hit.map(a=>ALN[a].n).join(", ")}</span>`:""}
-      <div class="chips">${i.id===S.sig?'<span class="chip usta">Bros\'un önerisi</span>':""}
+      <div class="chips">${i.id===S.sig?'<span class="chip usta">Şefin önerisi</span>':""}
         ${i.st!=="var"?`<span class="st ${i.st}">${LABEL[i.st]}</span>`:""}
         ${i.tags.map(t=>`<span class="chip ${t==="Öneri"?"oneri":""}">${esc(t)}</span>`).join("")}
         ${i.al.map(a=>`<span class="chip al ${hit.includes(a)?"hit":""}">${ALN[a].i} ${ALN[a].n}</span>`).join("")}</div></div></article>`;}).join("")
@@ -399,7 +491,7 @@ function closeAlg(){$("algSheet").classList.remove("on"); const f=document.query
 document.addEventListener("keydown",e=>{if(e.key==="Escape") closeAlg();});
 function renderPanel(){
   const ob=$("ocakBtn"); ob.className="big "+(S.ocak?"on":"off"); ob.textContent=S.ocak?"Açık":"Kapalı";
-  $("ocakTxt").textContent=S.ocak?'Açık: müşteri "Fritöz sıcak" görür.':'Kapalı: müşteri "Şu an kapalıyız" görür.';
+  $("ocakTxt").textContent=S.ocak?'Açık: misafirler "Mutfağımız açık" görür.':'Kapalı: misafirler "Şu an hizmet vermiyoruz" görür.';
   $("plist").innerHTML=S.items.map(i=>`<div class="prow"><span class="nm">${esc(i.nm)}</span>
     <div class="seg" role="group" aria-label="${esc(i.nm)} durumu">${["var","az","bitti"].map(s=>
       `<button class="${s}" aria-pressed="${i.st===s}" onclick="setSt('${i.id}','${s}')">${LABEL[s]}</button>`).join("")}</div></div>`).join("");
@@ -417,7 +509,7 @@ function renderPanel(){
       <label class="fl">Et türü / not<input value="${esc(i.tags.join(", "))}" onchange="upd('${i.id}','tags',this.value)"></label>
       <p class="fl">Alerjenler</p><div class="pal">${ALG.map(a=>`<button aria-pressed="${i.al.includes(a.k)}" onclick="togAl('${i.id}','${a.k}')">${a.i} ${a.n}</button>`).join("")}</div>
       <div class="erow">
-        <button class="mini ${i.id===S.sig?"on":""}" onclick="setSig('${i.id}')">${i.id===S.sig?"★ Bros\'un önerisi":"☆ İmza yap"}</button>
+        <button class="mini ${i.id===S.sig?"on":""}" onclick="setSig('${i.id}')">${i.id===S.sig?"★ Şefin önerisi":"☆ İmza yap"}</button>
         <label class="chk"><input type="checkbox" ${i.board?"checked":""} onchange="upd('${i.id}','board',this.checked)">Tahtada göster</label>
         <button class="mini del" onclick="delItem('${i.id}')">Sil</button>
       </div></div>`).join("");
@@ -434,7 +526,7 @@ function upd(id,k,v){const it=find(id);
   it[k]=v; save(); toast(k==="pr"?`${it.nm}: ${fmt(v)} ₺`:"Kaydedildi");}
 function togAl(id,k){const it=find(id); it.al=it.al.includes(k)?it.al.filter(x=>x!==k):[...it.al,k]; save(); toast(`${it.nm}: ${ALN[k].n} ${it.al.includes(k)?"eklendi":"kaldırıldı"}`);}
 function togNew(k){NEWAL=NEWAL.includes(k)?NEWAL.filter(x=>x!==k):[...NEWAL,k]; renderPanel();}
-function setSig(id){S.sig=(S.sig===id)?"":id; save(); toast(S.sig?find(id).nm+" artık Bros\'un önerisi":"İmza kaldırıldı");}
+function setSig(id){S.sig=(S.sig===id)?"":id; save(); toast(S.sig?find(id).nm+" artık Şefin önerisi":"İmza kaldırıldı");}
 function delItem(id){const it=find(id); if(!confirm(it.nm+" menüden silinsin mi?")) return;
   S.items=S.items.filter(i=>i.id!==id); if(S.sig===id) S.sig=""; save(); toast(it.nm+" silindi");}
 function addItem(){const nm=$("nName").value.trim(), pr=Math.round(Number($("nPrice").value));
