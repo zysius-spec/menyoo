@@ -562,11 +562,14 @@ render(); setInterval(()=>{$("upd").textContent=ago();},30000);
 
 <script>
 /* Çocuk alanı fotoğrafları (işletmenin Google profilinden) */
-const KIDS_PH=[/*PHOTOS*/];
+const KIDS_PH=[
+  {u:"https://lh3.googleusercontent.com/gps-cs-s/ANWiy9R5oRGkUr5YKX04D_zq1vLTphqvmSyMJz4nMSYgQVbLU-73le2Nx-XUVQjGfM0KWeRSAzf6R9ktLss50METWdbf2_qbtva9AcK1faU02BItoMCHqzFkXIDoOzGUOENFUcHyV2VONZM_09j5",c:"Top havuzu ve kaydırak",pos:"50% 60%"},
+  {u:"https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QTftgzWrGX_MDPpa8-MoJj4yTyICW4qMLUhPoaaG-U09ORQGTpNHOdoifwfzWcRBEOCLbtJRFiMtYF95w7ynGjUk5MHvM01X0XP2CcvAyDqw2TxzaBQjKmDqRPTL1AsSz6rmBtERqqNmlo",c:"Kids Play · girişin solunda",pos:"8% 55%",zoom:1.6}
+];
 (function(){const g=document.getElementById("kgal");
   const list=KIDS_PH.filter(Boolean);
   if(!list.length){g.remove();document.getElementById("kgalN").remove();return;}
-  g.innerHTML=list.map(p=>`<figure><img loading="lazy" src="${p.u}=w900-h675-k-no" alt="${p.c}"><figcaption>${p.c}</figcaption></figure>`).join("");
+  g.innerHTML=list.map(p=>`<figure><img loading="lazy" src="${p.u}=w1400-h1050-k-no" alt="${p.c}" style="object-position:${p.pos||'50% 50%'};${p.zoom?`transform:scale(${p.zoom});transform-origin:${p.pos}`:''}"><figcaption>${p.c}</figcaption></figure>`).join("");
   g.querySelectorAll("img").forEach(i=>i.onerror=()=>i.closest("figure").remove());
 })();
 </script>
