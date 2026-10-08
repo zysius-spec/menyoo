@@ -67,7 +67,37 @@ h2{font-family:"Young Serif",Georgia,serif;font-weight:400;font-size:25px;margin
 .pack .sep s{font-weight:700}
 .pack .price{margin-top:2px !important;border-top:0 !important;padding-top:0 !important}
 .pack .xn{font-size:12.5px;color:var(--soluk);margin-top:4px}
-@media print{body{background:#fff;padding:0}.sheet{box-shadow:none;max-width:none}.sheet:before,.sheet:after{display:none}.pack.star{box-shadow:none}}
+@media print{
+  @page{size:A4;margin:10mm 11mm}
+  html,body{background:#fff!important}
+  body{padding:0;font-size:11.5px;line-height:1.38}
+  *{color:#000!important;box-shadow:none!important}
+  .sheet{max-width:none;padding:0;box-shadow:none;background:#fff}
+  .sheet:before,.sheet:after{display:none}
+  header{padding-bottom:8px}
+  .brand{font-size:38px}.brand small{font-size:12.5px;margin-top:5px}
+  .stamp{font-size:10px;padding:4px 7px;border-color:#000}
+  .intro{margin:12px 0 0;font-size:13px}
+  h2{font-size:20px;margin:18px 0 3px}
+  .sec-note{font-size:11.5px;margin-bottom:6px}
+  .packs{gap:12px;margin-top:8px}
+  .pack{padding:14px 14px 12px;background:#fff;border-color:#000!important;break-inside:avoid;min-height:107mm}
+  .pack.star{border-width:2.5px}
+  .pack h3{font-size:21px}.pack .for{font-size:12px}
+  .pack ul{margin:12px 0;gap:7px;font-size:13px}
+  .pack li .v{font-size:12px}
+  .pack .sep{padding-top:9px;font-size:12px}
+  .pack .price b{font-size:25px}
+  .pack .price em{font-size:12px}
+  .pack .xn{font-size:10px}
+  .badge{background:#fff;border:1.5px solid #000;font-size:9.5px;padding:1px 7px;margin-bottom:4px}
+  h2.ek{break-before:page;margin-top:0}
+  .row{padding:7px 0;break-inside:avoid;font-size:12.5px}
+  .ds{font-size:11.5px}
+  .rules{margin-top:12px;padding-top:8px;font-size:10.5px}
+  .rules li{margin:3px 0 3px 16px}
+  .contact{margin-top:10px}
+}
 </style>
 </head>
 <body>
@@ -142,7 +172,7 @@ h2{font-family:"Young Serif",Georgia,serif;font-weight:400;font-size:25px;margin
     </section>
   </div>
 
-  <h2>Ek hizmetler</h2>
+  <h2 class="ek">Ek hizmetler</h2>
   <p class="sec-note">Paketin içinde olmayan işler için. Paket müşterilerine özel fiyatlardır.</p>
   <div class="row"><span class="nm free">Dijital görünürlük karnesi</span><span class="pr free">Ücretsiz</span>
     <span class="ds">İlk görüşmede: Google profilinizin durumu, rakiplerinize göre yeriniz ve 3 hızlı öneri.</span></div>
