@@ -139,6 +139,29 @@ textarea{width:100%;margin-top:10px;border:1.5px solid var(--cizgi);border-radiu
 .mini.del{color:var(--sumak);margin-left:auto}
 .chk{display:flex;gap:8px;align-items:center;font-size:14px;font-weight:600}
 .chk input{width:20px;height:20px;accent-color:var(--sumak)}
+.algbtn{display:block;margin:14px 16px 0;width:calc(100% - 32px);border:2px solid #B3261E;background:#fff;color:#B3261E;border-radius:14px;padding:13px;font-weight:800;font-size:16px}
+.algbar{margin:12px 16px 0;background:#FDE8E6;border:2px solid #B3261E;border-radius:14px;padding:10px 12px;font-size:14px;display:none}
+.algbar.on{display:block}
+.algbar b{color:#B3261E}
+.algbar .acts{margin-top:8px;display:flex;gap:8px}
+.algbar .acts button{border:1.5px solid #B3261E;background:#fff;color:#B3261E;border-radius:10px;padding:7px 12px;font-weight:700;font-size:13px}
+.item.alrj{border:3px solid #B3261E;border-radius:16px;padding:10px;margin:8px 0;background:#FFF4F2}
+.awarn{display:block;color:#B3261E;font-weight:800;font-size:14px;margin-top:6px}
+.chip.al{background:#fff;border-color:#E6C2BC;color:#7a2b22}
+.chip.al.hit{background:#B3261E;color:#fff;border-color:#B3261E}
+.sheet{position:fixed;inset:0;background:rgba(42,26,20,.55);z-index:20;display:none;align-items:flex-end;justify-content:center}
+.sheet.on{display:flex}
+.sheet>div{background:var(--lavas);width:100%;max-width:540px;border-radius:22px 22px 0 0;padding:18px 16px 24px;max-height:88vh;overflow:auto}
+.sheet h2{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;font-size:24px;font-weight:800;color:#B3261E}
+.sheet p{font-size:14px;color:var(--soluk);margin-top:4px}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.agrid button{border:2px solid var(--cizgi);background:#fff8e6;border-radius:12px;padding:12px 8px;font-weight:700;font-size:14px;text-align:left;color:var(--murekkep)}
+.agrid button[aria-pressed="true"]{border-color:#B3261E;background:#B3261E;color:#fff}
+.sheet .go{width:100%;margin-top:14px;border:0;border-radius:14px;padding:14px;font-weight:800;font-size:16px;background:#B3261E;color:#fff}
+.sheet .warn{font-size:12px;margin-top:10px}
+.pal{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.pal button{border:1.5px solid var(--cizgi);background:#fff8e6;border-radius:99px;padding:6px 10px;font-size:13px;font-weight:600;color:var(--murekkep)}
+.pal button[aria-pressed="true"]{background:#B3261E;border-color:#B3261E;color:#fff}
 .toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:76px;background:var(--murekkep);color:var(--lavas);padding:10px 16px;border-radius:12px;font-weight:600;font-size:14px;opacity:0;transition:.25s;z-index:9;pointer-events:none}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
@@ -174,6 +197,9 @@ textarea{width:100%;margin-top:10px;border:1.5px solid var(--cizgi);border-radiu
     <span class="fact">Pazar kapalı</span>
   </div>
 
+  <button class="algbtn" id="algBtn" onclick="openAlg()">⚠️ Alerjiniz mi var?</button>
+  <div class="algbar" id="algBar"></div>
+
   <nav class="cats" id="cats" aria-label="Menü bölümleri"></nav>
   <div id="menu"></div>
 
@@ -185,7 +211,7 @@ textarea{width:100%;margin-top:10px;border:1.5px solid var(--cizgi);border-radiu
     <p class="q">Kemal Usta yeni favori mahalle lezzetimiz.</p>
   </div>
 
-  <p class="legal"><b>İçerik ve alerjen bilgisi</b> her ürünün altında yazar; kalori bilgisi eklenecektir. Bu bilgilere karekod ile ulaşabilirsiniz. QR menü kullanamayan tüketiciler talep ederse bilgi kendilerine ayrıca sunulur.</p>
+  <p class="legal"><b>İçerik ve alerjen bilgisi</b> her ürünün altında yazar; "Alerjiniz mi var?" ile size dokunan ürünleri işaretleyebilirsiniz; kalori bilgisi eklenecektir. Bu bilgilere karekod ile ulaşabilirsiniz. QR menü kullanamayan tüketiciler talep ederse bilgi kendilerine ayrıca sunulur.</p>
   <p class="foot">Örnek tasarım: infofarer</p>
 </main>
 
@@ -231,7 +257,8 @@ textarea{width:100%;margin-top:10px;border:1.5px solid var(--cizgi);border-radiu
         <label class="fl">Bölüm<select id="nCat"></select></label>
       </div>
       <label class="fl">Açıklama<input id="nDesc" placeholder="İçinde ne var, kısaca"></label>
-      <label class="fl">İçerik ve alerjen (virgülle ayır)<input id="nTags" placeholder="Kırmızı et, Gluten, Süt"></label>
+      <label class="fl">Et türü / not (virgülle ayır)<input id="nTags" placeholder="Kırmızı et, Acılı"></label>
+      <p class="fl">Alerjenler (dokunarak seç)</p><div class="pal" id="nAl"></div>
       <button class="big on wide" onclick="addItem()">Menüye ekle</button>
     </div>
     <div id="editList"></div>
@@ -243,6 +270,16 @@ textarea{width:100%;margin-top:10px;border:1.5px solid var(--cizgi);border-radiu
   </div>
 </section>
 
+<div class="sheet" id="algSheet" role="dialog" aria-modal="true" aria-labelledby="algTitle" onclick="if(event.target===this)closeAlg()">
+  <div>
+    <h2 id="algTitle">Alerjiniz mi var?</h2>
+    <p>Size dokunan alerjenleri seçin. İçinde bulunan ürünleri kırmızı çerçeveyle işaretleyelim.</p>
+    <div class="agrid" id="agrid"></div>
+    <button class="go" onclick="closeAlg()">Menüde göster</button>
+    <p class="warn">Alerjen bilgisi işletme tarafından girilir. Ciddi bir alerjiniz varsa sipariş vermeden önce mutlaka Kemal Usta'ya sorun; aynı mutfakta çapraz bulaşma olabilir.</p>
+  </div>
+</div>
+
 <div class="switch" role="group" aria-label="Görünüm">
   <button id="bM" aria-pressed="true" onclick="mode('m')">Müşteri menüsü</button>
   <button id="bP" aria-pressed="false" onclick="mode('p')">Usta paneli</button>
@@ -250,22 +287,32 @@ textarea{width:100%;margin-top:10px;border:1.5px solid var(--cizgi);border-radiu
 <div class="toast" id="toast"></div>
 
 <script>
+const ALG=[
+ {k:"gluten",n:"Gluten",i:"🌾"},{k:"sut",n:"Süt",i:"🥛"},{k:"yumurta",n:"Yumurta",i:"🥚"},
+ {k:"susam",n:"Susam",i:"⚪"},{k:"fistik",n:"Yer fıstığı",i:"🥜"},{k:"kmeyve",n:"Ceviz, fındık vb.",i:"🌰"},
+ {k:"soya",n:"Soya",i:"🫘"},{k:"hardal",n:"Hardal",i:"🟡"},{k:"kereviz",n:"Kereviz",i:"🥬"},
+ {k:"balik",n:"Balık",i:"🐟"},{k:"kabuklu",n:"Karides, yengeç",i:"🦐"},{k:"yumusakca",n:"Midye, kalamar",i:"🦑"},
+ {k:"sulfit",n:"Sülfit",i:"🍷"},{k:"lupin",n:"Acı bakla",i:"🌼"}];
+const ALN=Object.fromEntries(ALG.map(a=>[a.k,a]));
 const DEFAULT = {ocak:true, note:"", t:0, cats:["Dürümler","Porsiyonlar","Çorba","İçecekler"], items:[
- {id:"adana", cat:"Dürümler", nm:"Adana Dürüm", pr:300, ds:"Zırh kıyma, közlenmiş biber ve domates, sumaklı soğan, lavaş.", tags:["Kırmızı et","Gluten","Acılı"], board:true, st:"var"},
- {id:"urfa", cat:"Dürümler", nm:"Urfa Dürüm", pr:300, ds:"Acısız zırh kıyma, közlenmiş biber, maydanozlu soğan.", tags:["Kırmızı et","Gluten"], board:false, st:"var"},
- {id:"ciger", cat:"Dürümler", nm:"Ciğer Dürüm", pr:330, ds:"Közde kuzu ciğeri, soğan, maydanoz, pul biber.", tags:["Sakatat (kuzu)","Gluten"], board:true, st:"var"},
- {id:"tavuk", cat:"Dürümler", nm:"Tavuk Şiş Dürüm", pr:260, ds:"Marine tavuk göğsü, közlenmiş biber, yeşillik.", tags:["Kanatlı","Gluten","Süt"], board:false, st:"var"},
- {id:"adanap", cat:"Porsiyonlar", nm:"Adana Kebap", pr:420, ds:"Lavaş, bulgur pilavı, közlenmiş sebze ve ikram mezeler.", tags:["Kırmızı et","Gluten"], board:false, st:"var"},
- {id:"kanat", cat:"Porsiyonlar", nm:"Tavuk Kanat", pr:320, ds:"Közde çıtır kanat, özel sos, pilav.", tags:["Kanatlı","Gluten"], board:true, st:"az"},
- {id:"cigerp", cat:"Porsiyonlar", nm:"Ciğer Şiş", pr:450, ds:"Kuzu ciğer şiş, soğan salatası, lavaş.", tags:["Sakatat (kuzu)","Gluten"], board:false, st:"var"},
- {id:"corba", cat:"Çorba", nm:"Mercimek Çorbası", pr:120, ds:"Günlük; limon ve ekmekle.", tags:["Gluten","Süt"], board:false, st:"var"},
- {id:"ayran", cat:"İçecekler", nm:"Ayran", pr:40, ds:"Yayık usulü.", tags:["Süt"], board:false, st:"var"},
- {id:"salgam", cat:"İçecekler", nm:"Şalgam", pr:50, ds:"Acılı veya acısız.", tags:[], board:false, st:"var"}
+ {id:"adana", cat:"Dürümler", nm:"Adana Dürüm", pr:300, ds:"Zırh kıyma, közlenmiş biber ve domates, sumaklı soğan, lavaş.", tags:["Kırmızı et","Acılı"], al:["gluten"], board:true, st:"var"},
+ {id:"urfa", cat:"Dürümler", nm:"Urfa Dürüm", pr:300, ds:"Acısız zırh kıyma, közlenmiş biber, maydanozlu soğan.", tags:["Kırmızı et"], al:["gluten"], board:false, st:"var"},
+ {id:"ciger", cat:"Dürümler", nm:"Ciğer Dürüm", pr:330, ds:"Közde kuzu ciğeri, soğan, maydanoz, pul biber.", tags:["Sakatat (kuzu)"], al:["gluten"], board:true, st:"var"},
+ {id:"tavuk", cat:"Dürümler", nm:"Tavuk Şiş Dürüm", pr:260, ds:"Marine tavuk göğsü, közlenmiş biber, yeşillik.", tags:["Kanatlı"], al:["gluten","sut"], board:false, st:"var"},
+ {id:"adanap", cat:"Porsiyonlar", nm:"Adana Kebap", pr:420, ds:"Lavaş, bulgur pilavı, közlenmiş sebze ve ikram mezeler.", tags:["Kırmızı et"], al:["gluten"], board:false, st:"var"},
+ {id:"kanat", cat:"Porsiyonlar", nm:"Tavuk Kanat", pr:320, ds:"Közde çıtır kanat, özel sos, pilav.", tags:["Kanatlı"], al:["gluten"], board:true, st:"az"},
+ {id:"cigerp", cat:"Porsiyonlar", nm:"Ciğer Şiş", pr:450, ds:"Kuzu ciğer şiş, soğan salatası, lavaş.", tags:["Sakatat (kuzu)"], al:["gluten"], board:false, st:"var"},
+ {id:"corba", cat:"Çorba", nm:"Mercimek Çorbası", pr:120, ds:"Günlük; limon ve ekmekle.", tags:[], al:["gluten","sut"], board:false, st:"var"},
+ {id:"ayran", cat:"İçecekler", nm:"Ayran", pr:40, ds:"Yayık usulü.", tags:[], al:["sut"], board:false, st:"var"},
+ {id:"salgam", cat:"İçecekler", nm:"Şalgam", pr:50, ds:"Acılı veya acısız.", tags:["Acılı seçenek"], al:[], board:false, st:"var"}
 ], sig:"adana"};
 const LABEL = {var:"Var", az:"Az kaldı", bitti:"Bitti"};
-const KEY = "kemal-demo-v2";
+const KEY = "kemal-demo-v3";
 let S = JSON.parse(JSON.stringify(DEFAULT)); S.t = Date.now();
 try{const v=JSON.parse(localStorage.getItem(KEY)); if(v&&v.items) S=v;}catch(e){}
+S.items.forEach(i=>{if(!i.al) i.al=[];});
+let MY=[]; try{MY=JSON.parse(localStorage.getItem("kemal-alerji"))||[];}catch(e){}
+let NEWAL=[];
 function save(silent){S.t=Date.now(); try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){} render(silent);}
 const $=id=>document.getElementById(id);
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
@@ -284,15 +331,31 @@ function renderCustomer(){
   const cats=S.cats.filter(c=>S.items.some(i=>i.cat===c));
   $("cats").innerHTML=cats.map((c,k)=>`<a href="#c${k}">${esc(c)}</a>`).join("");
   $("menu").innerHTML=cats.map((c,k)=>`<section class="cat" id="c${k}"><h3>${esc(c)}</h3>${
-    S.items.filter(i=>i.cat===c).sort((a,b)=>(b.id===S.sig)-(a.id===S.sig)).map(i=>`<article class="item ${i.st==="bitti"?"out":""}">
+    S.items.filter(i=>i.cat===c).sort((a,b)=>(b.id===S.sig)-(a.id===S.sig)).map(i=>{const hit=i.al.filter(a=>MY.includes(a)); return `<article class="item ${i.st==="bitti"?"out":""} ${hit.length?"alrj":""}">
       <div class="ph">Fotoğraf çekimden sonra</div>
       <div><div class="top"><span class="nm">${esc(i.nm)}</span><span class="pr">${fmt(i.pr)} ₺</span></div>
       ${i.ds?`<p class="ds">${esc(i.ds)}</p>`:""}
+      ${hit.length?`<span class="awarn">⚠ Dikkat, içerir: ${hit.map(a=>ALN[a].n).join(", ")}</span>`:""}
       <div class="chips">${i.id===S.sig?'<span class="chip usta">Ustanın imzası</span>':""}
         ${i.st!=="var"?`<span class="st ${i.st}">${LABEL[i.st]}</span>`:""}
-        ${i.tags.map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div></div></article>`).join("")
+        ${i.tags.map(t=>`<span class="chip">${esc(t)}</span>`).join("")}
+        ${i.al.map(a=>`<span class="chip al ${hit.includes(a)?"hit":""}">${ALN[a].i} ${ALN[a].n}</span>`).join("")}</div></div></article>`;}).join("")
   }</section>`).join("");
+  renderAlg();
 }
+function renderAlg(){
+  $("agrid").innerHTML=ALG.map(a=>`<button aria-pressed="${MY.includes(a.k)}" onclick="togMy('${a.k}')">${a.i} ${a.n}</button>`).join("");
+  const n=S.items.filter(i=>i.al.some(a=>MY.includes(a))).length;
+  $("algBar").classList.toggle("on",MY.length>0);
+  $("algBtn").style.display=MY.length?"none":"block";
+  $("algBar").innerHTML=MY.length?`<b>Alerjileriniz: ${MY.map(a=>ALN[a].n).join(", ")}</b><br>${n?`${n} ürün bunlardan en az birini içeriyor, kırmızı çerçeveyle işaretlendi.`:"Menüde bunları içeren ürün yok."}
+    <div class="acts"><button onclick="openAlg()">Değiştir</button><button onclick="clearMy()">Temizle</button></div>`:"";
+}
+function togMy(k){MY=MY.includes(k)?MY.filter(x=>x!==k):[...MY,k]; try{localStorage.setItem("kemal-alerji",JSON.stringify(MY));}catch(e){} renderCustomer();}
+function clearMy(){MY=[]; try{localStorage.setItem("kemal-alerji","[]");}catch(e){} renderCustomer();}
+function openAlg(){$("algSheet").classList.add("on"); $("agrid").querySelector("button").focus();}
+function closeAlg(){$("algSheet").classList.remove("on"); const f=document.querySelector(".item.alrj"); if(f) f.scrollIntoView({behavior:"smooth",block:"center"});}
+document.addEventListener("keydown",e=>{if(e.key==="Escape") closeAlg();});
 function renderPanel(){
   const ob=$("ocakBtn"); ob.className="big "+(S.ocak?"on":"off"); ob.textContent=S.ocak?"Açık":"Kapalı";
   $("ocakTxt").textContent=S.ocak?'Açık: müşteri "Ocak yanıyor" görür.':'Kapalı: müşteri "Ocak şu an kapalı" görür.';
@@ -300,6 +363,7 @@ function renderPanel(){
     <div class="seg" role="group" aria-label="${esc(i.nm)} durumu">${["var","az","bitti"].map(s=>
       `<button class="${s}" aria-pressed="${i.st===s}" onclick="setSt('${i.id}','${s}')">${LABEL[s]}</button>`).join("")}</div></div>`).join("");
   if(document.activeElement!==$("noteIn")) $("noteIn").value=S.note;
+  $("nAl").innerHTML=ALG.map(a=>`<button aria-pressed="${NEWAL.includes(a.k)}" onclick="togNew('${a.k}')">${a.i} ${a.n}</button>`).join("");
   $("nCat").innerHTML=S.cats.map(c=>`<option>${esc(c)}</option>`).join("");
   $("editList").innerHTML=S.cats.map(c=>{const its=S.items.filter(i=>i.cat===c); if(!its.length) return "";
     return `<p class="ecat">${esc(c)}</p>`+its.map(i=>`<div class="eitem ${i.id===S.sig?"sig":""}">
@@ -309,7 +373,8 @@ function renderPanel(){
         <label class="fl">Bölüm<select onchange="upd('${i.id}','cat',this.value)">${S.cats.map(x=>`<option ${x===i.cat?"selected":""}>${esc(x)}</option>`).join("")}</select></label>
       </div>
       <label class="fl">Açıklama<input value="${esc(i.ds)}" onchange="upd('${i.id}','ds',this.value)"></label>
-      <label class="fl">İçerik ve alerjen<input value="${esc(i.tags.join(", "))}" onchange="upd('${i.id}','tags',this.value)"></label>
+      <label class="fl">Et türü / not<input value="${esc(i.tags.join(", "))}" onchange="upd('${i.id}','tags',this.value)"></label>
+      <p class="fl">Alerjenler</p><div class="pal">${ALG.map(a=>`<button aria-pressed="${i.al.includes(a.k)}" onclick="togAl('${i.id}','${a.k}')">${a.i} ${a.n}</button>`).join("")}</div>
       <div class="erow">
         <button class="mini ${i.id===S.sig?"on":""}" onclick="setSig('${i.id}')">${i.id===S.sig?"★ Ustanın imzası":"☆ İmza yap"}</button>
         <label class="chk"><input type="checkbox" ${i.board?"checked":""} onchange="upd('${i.id}','board',this.checked)">Ocak tahtasında</label>
@@ -326,6 +391,8 @@ function upd(id,k,v){const it=find(id);
   if(k==="tags"){v=v.split(",").map(x=>x.trim()).filter(Boolean);}
   if(k==="nm"&&!v.trim()){toast("Ürün adı boş olamaz"); render(); return;}
   it[k]=v; save(); toast(k==="pr"?`${it.nm}: ${fmt(v)} ₺`:"Kaydedildi");}
+function togAl(id,k){const it=find(id); it.al=it.al.includes(k)?it.al.filter(x=>x!==k):[...it.al,k]; save(); toast(`${it.nm}: ${ALN[k].n} ${it.al.includes(k)?"eklendi":"kaldırıldı"}`);}
+function togNew(k){NEWAL=NEWAL.includes(k)?NEWAL.filter(x=>x!==k):[...NEWAL,k]; renderPanel();}
 function setSig(id){S.sig=(S.sig===id)?"":id; save(); toast(S.sig?find(id).nm+" artık ustanın imzası":"İmza kaldırıldı");}
 function delItem(id){const it=find(id); if(!confirm(it.nm+" menüden silinsin mi?")) return;
   S.items=S.items.filter(i=>i.id!==id); if(S.sig===id) S.sig=""; save(); toast(it.nm+" silindi");}
@@ -333,7 +400,8 @@ function addItem(){const nm=$("nName").value.trim(), pr=Math.round(Number($("nPr
   if(!nm){toast("Önce ürün adını yaz"); $("nName").focus(); return;}
   if(!(pr>0)){toast("Fiyatı yaz"); $("nPrice").focus(); return;}
   S.items.push({id:"u"+Date.now(), cat:$("nCat").value, nm, pr, ds:$("nDesc").value.trim(),
-    tags:$("nTags").value.split(",").map(x=>x.trim()).filter(Boolean), board:false, st:"var"});
+    tags:$("nTags").value.split(",").map(x=>x.trim()).filter(Boolean), al:[...NEWAL], board:false, st:"var"});
+  NEWAL=[];
   ["nName","nPrice","nDesc","nTags"].forEach(k=>$(k).value=""); save(); toast(nm+" menüye eklendi");}
 function resetDemo(){if(!confirm("Tüm değişiklikler silinsin mi?")) return;
   S=JSON.parse(JSON.stringify(DEFAULT)); save(); toast("Örnek menüye dönüldü");}
